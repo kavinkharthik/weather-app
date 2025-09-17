@@ -6,10 +6,6 @@ const App = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-  
-  // Debug log
-  console.log('App component rendered');
-  console.log('Current state:', { weatherData, isLoading, error });
 
   const handleSearch = async (location) => {
     try {
