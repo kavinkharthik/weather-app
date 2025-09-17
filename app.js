@@ -64,3 +64,47 @@ const App = () => {
         
         <div className="search-container">
           <SearchBar onSearch={handleSearch} isLoading={isLoading} />
+          {error && <p className="error-message">{error}</p>}
+        </div>
+        
+        {weatherData && (
+          <div className="weather-display">
+            <h2>Current Weather in {weatherData.city}, {weatherData.country}</h2>
+            <div className="weather-main">
+              <div className="weather-icon">
+                <img src={weatherData.icon} alt={weatherData.description} />
+              </div>
+              <div className="weather-primary">
+                <p className="temperature">{weatherData.temperature}</p>
+                <p className="description">{weatherData.description}</p>
+              </div>
+            </div>
+            <div className="weather-details">
+              <div className="detail-item">
+                <span className="detail-label">Feels Like</span>
+                <span className="detail-value">{weatherData.feelsLike}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Humidity</span>
+                <span className="detail-value">{weatherData.humidity}</span>
+              </div>
+              <div className="detail-item">
+                <span className="detail-label">Wind</span>
+                <span className="detail-value">{weatherData.windSpeed}</span>
+              </div>
+            </div>
+            <div className="weather-timestamp">
+              Last updated: {weatherData.timestamp}
+            </div>
+          </div>
+        )}
+        
+        <footer className="app-footer">
+          <p>Weather App © {new Date().getFullYear()}</p>
+        </footer>
+      </div>
+    </div>
+  );
+};
+
+export default App;
